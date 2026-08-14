@@ -1,0 +1,777 @@
+html{
+  font-size:16px;
+  box-sizing:border-box;
+  scroll-behavior: auto;
+}
+*,::before, ::after{
+  box-sizing:inherit;
+}
+#navbar{
+  position:fixed;
+  left:0;
+  top:0;
+  height:100%;
+  width:170px;
+  background-color:#7c3aed ;
+  color:white;
+  padding:10px;
+  z-index:999;
+  
+}
+#navbar header h1{
+  text-align:center;
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+#navbar ul li{
+  font-size: 0.7rem;
+  margin-bottom:1rem;
+  text-align: center;
+}
+#navbar ul{
+  list-style:none;
+  padding: 0;
+}
+#navbar a{
+    text-decoration:none;
+    color:white;
+    padding: 1rem;
+    display:inline-block;
+    transition: font-size 200ms ease-in-out;
+}
+  
+  #navbar a:hover{
+    color:#5a1287;
+    font-size: 0.8rem;
+  }
+  #navbar a:active{
+    color:red;
+  }
+ 
+
+body{
+  margin:0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding:0 150px 150px;
+  background-color:white;
+  margin-left:2rem;
+}
+
+section{
+  border-bottom:1px solid gray;
+  padding-bottom:6.25rem;
+  padding-top:3.125rem, ;
+}
+
+.code{
+  background-color:beige;
+  overflow:hidden;
+  border:1px solid rgb(151, 151, 138);
+  padding:50px;
+  margin:10px auto;
+  width:300px;
+  text-align:center;
+}
+.highlight{
+  background-color:rgba(214, 120, 120, 0.1);
+  color:red;
+}
+.main-section h2{
+  text-align:center;
+  margin:5rem 0;
+  font-size:1.6rem;
+}
+p{
+  margin:20px 0;
+}
+article ol li{
+    margin-bottom:0.5rem;
+  }
+
+h3{
+  color:rgb(61, 187, 61);
+  font-size:1.6rem;
+  text-decoration:underline;
+}
+h4{
+  text-decoration:underline;
+  font-size:1.4rem;
+}
+
+h5{
+  color:rgb(255,0,0);
+  font-size:1.3rem;
+  text-decoration:underline;
+}
+h6{
+  font-size:1.2rem;
+  color:rgb(255, 127, 0);
+}
+h3, h4, h5, h6{
+  margin:5rem 0;
+}
+
+/*The CSS Position Property */
+.static-div{
+  border:2px solid blue;
+  position:static;
+
+}
+
+.relative-div{
+  border:2px solid blue;
+  position:relative;
+  left:50px;
+  width: 200px;
+  height: 200px;
+}
+.fixed-div{
+  border:2px solid blue;
+  background-color:rgb(203, 203, 235);
+  position:fixed;
+  right:0;
+  bottom:0;
+  z-index:999;
+}
+.absolute-div{
+  border:2px solid blue;
+  position:absolute;
+  bottom:10px;
+  right:5px;
+}
+
+.sticky-container{
+  border:3px solid gray;
+  overflow:auto;
+  width: 200px;
+  height:200px;
+  margin: auto;
+}
+.sticky-div{
+  border:2px solid blue;
+  background-color:rgb(203, 203, 235);
+  position:sticky;
+  top:0;
+}
+
+.zindex-container{
+  width:270px;
+  height:500px;
+  border:1px solid gray;
+  background-color:rgb(241, 236, 236);
+  margin:auto;
+  overflow:hidden;
+  position:relative;
+}
+
+.red-div{
+  border:1px solid black;
+  background-color:red;
+  width:50px;
+  height:50px;
+  position:absolute;
+}
+.yellow-div{
+  border:1px solid black;
+  background-color:rgba(255,255,0,0.8);
+  width:50px;
+  height:50px;
+  position:absolute;
+  font-size: 0.7em;
+}
+.top-left{
+  top:0;
+  left:0;
+}
+.top-right{
+  top:0;
+  right:0;
+}
+.bottom-right{
+  bottom:0;
+  right:0;
+}
+.bottom-left{
+  bottom:0;
+  left:0;
+}
+
+.tl0{
+  top:20px;
+  left:20px;
+
+}
+.tl1{
+  top:40px;
+  left:40px;
+}
+
+.tl2{
+  top:60px;
+  left:60px;
+}
+.tl3{
+  top:80px;
+  left:80px;
+
+}
+.tr0{
+  top:20px;
+  right:20px
+}
+.tr1{
+  top:40px;
+  right:40px;
+
+}
+.tr2{
+  top:60px;
+  right:60px;
+
+}
+.tr3{
+  top:80px;
+  right:80px;
+
+}
+.br0{
+  bottom:20px;
+  right:20px;
+}
+.br1{
+  bottom:40px;
+  right:40px;
+}
+.br2{
+  bottom:60px;
+  right:60px;
+}
+.br3{
+  bottom:80px;
+  right:80px;
+}
+.bl0{
+  bottom:20px;
+  left:20px;
+}
+.bl1{
+  bottom:40px;
+  left:40px;
+}
+.bl2{
+  bottom:60px;
+  left:60px;
+}
+.bl3{
+  bottom:80px;
+  left:80px;
+}
+
+.zindex1{
+  z-index:1;
+}
+.zindex2{
+  z-index:2;
+}
+.zindex3{
+  z-index:3;
+}
+
+  
+/*Color Theory */
+
+.color-wheel-container{
+  position:relative;
+  margin:50px auto;
+  min-width:200px;
+  left: 50px;
+}
+.color-wheel{
+  width:200px;
+  height: 200px;
+  border-radius:50%;
+  background:conic-gradient( 
+    hsl(0, 100%, 50%) 0deg 10deg,
+    hsl(10, 100%, 50%) 10deg 20deg,
+    hsl(20, 100%, 50%) 20deg 30deg,
+    hsl(30, 100%, 50%) 30deg 40deg,
+    hsl(40, 100%, 50%) 40deg 50deg,
+    hsl(50, 100%, 50%) 50deg 60deg,
+    hsl(60, 100%, 50%) 60deg 70deg,
+    hsl(70, 100%, 50%) 70deg 80deg,
+    hsl(80, 100%, 50%) 80deg 90deg,
+    hsl(90, 100%, 50%) 90deg 100deg,
+    hsl(100, 100%, 50%) 100deg 110deg,
+    hsl(110, 100%, 50%) 110deg 120deg,
+    hsl(120, 100%, 50%) 120deg 130deg,
+    hsl(130, 100%, 50%) 130deg 140deg,
+  hsl(140, 100%, 50%) 140deg 150deg,
+  hsl(150, 100%, 50%) 150deg 160deg,
+  hsl(160, 100%, 50%) 160deg 170deg,
+  hsl(170, 100%, 50%) 170deg 180deg,
+  hsl(180, 100%, 50%) 180deg 190deg,
+  hsl(190, 100%, 50%) 190deg 200deg,
+  hsl(200, 100%, 50%) 200deg 210deg,
+  hsl(210, 100%, 50%) 210deg 220deg,
+  hsl(220, 100%, 50%) 220deg 230deg,
+  hsl(230, 100%, 50%) 230deg 240deg,
+  hsl(240, 100%, 50%) 240deg 250deg,
+  hsl(250, 100%, 50%) 250deg 260deg,
+  hsl(260, 100%, 50%) 260deg 270deg,
+  hsl(270, 100%, 50%) 270deg 280deg,
+  hsl(280, 100%, 50%) 280deg 290deg,
+  hsl(290, 100%, 50%) 290deg 300deg,
+  hsl(300, 100%, 50%) 300deg 310deg,
+  hsl(310, 100%, 50%) 310deg 320deg,
+  hsl(320, 100%, 50%) 320deg 330deg,
+  hsl(330, 100%, 50%) 330deg 340deg,
+  hsl(340, 100%, 50%) 340deg 350deg,
+  hsl(350, 100%, 50%) 350deg 360deg 
+);
+}
+
+.color-wheel-center{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  background-color:white;
+  position:absolute;
+  top:29px;
+  left:29px;
+}
+.color-wheel-center span{
+  font-size:0.7em;
+}
+/*End of color-wheel */
+.rgba-example{
+  background-color:rgba(255,0,0,0.3);
+  width:400px;
+  height:200;
+  padding:15px;
+  text-align:center;
+}
+
+/*CSS background*/
+.linear-grad-container{
+  display: flex;
+  background-color: yellow;
+}
+.linear-gradient-1{
+  background:linear-gradient(90deg, rgb(255,0,255), rgb(127,0,255));
+  color:white;
+  padding:20px;
+  text-align:center;
+  width:600px;
+  margin:auto;
+}
+
+.linear-gradient-default{
+  background:linear-gradient(red,yellow);
+  width:50%;
+  height:100%;
+  padding:10px;
+  text-align:center;
+  margin:0;
+}
+
+.linear-gradient-toright{
+  background:linear-gradient(to right, red,yellow);
+  width:50%;
+  height:100%;
+  padding:10px;
+  text-align:center;
+  margin:0;
+}
+
+.linear-gradient-diagonal{
+  background:linear-gradient(to bottom right, red,yellow);
+  width:50%;
+  height:100%;
+  padding:10px;
+  text-align:center;
+  margin:0;
+}
+
+.linear-gradient-180{
+  background:linear-gradient(180deg, red, yellow);
+   width:300px;
+   height:150px;
+   padding:10px;
+   text-align:center;
+   margin:auto;
+}
+
+.linear-gradient-90{
+  background: linear-gradient(90deg, rgb(127,0,255)70%, rgb(255,0,127));
+  color:white;
+  width:400px;
+  padding:10px;
+  text-align:center;
+  margin:auto;
+}
+
+.linear-gradient-180b{
+  background: linear-gradient(180deg, red 0%, yellow 50%, red 100%);
+  width:500px;
+  padding:10px;
+  text-align:center;
+  margin:auto;
+}
+
+.linear-gradient-transparent{
+  background: linear-gradient(90deg, rgba(255,0,0,0), rgba(255,0,0,1));
+  width:500px;
+  margin:auto;
+  padding:10px;
+  text-align:center;
+
+}
+.linear-gradient-repeat{
+  background: repeating-linear-gradient(rgb(52, 209, 162), rgb(37, 99, 133) 10%, rgb(105, 57, 160)20% );
+  width:500px;
+  height:400px;
+  padding:10px;
+  text-align:center;
+  margin: 40px auto 70px;
+
+}
+
+.radial-gradient-1 {
+  background:linear-gradient(90deg, rgb(255,0,255), rgb(127,0,255));
+  color:white;
+  padding:20px;
+  text-align:center;
+  width:600px;
+  margin:auto;
+}
+
+.radial-gradient-default{
+  background: radial-gradient( red, blue, purple);
+  width:400px;
+  height:200px;
+  margin:20px auto 50px;
+}
+
+.radial-gradient-examplecircle{
+  background:radial-gradient(circle, red, blue, purple);
+  margin: 20px auto 50px;
+  width:400px;
+  height:200px;
+}
+/*First radial-gradient container */
+.radial-size-container{
+  display:flex; gap:10px;
+  justify-content:center;
+  flex-direction:row;
+  margin: auto;
+}
+.radial-closest-side{
+  background-image: radial-gradient(closest-side, red, yellow, black);
+  width:150px;
+  height:150px;
+  margin-bottom:20px;
+  position:relative;
+}
+.radial-farthest-side{
+  background:radial-gradient(farthest-side, red, yellow, black);
+  width:150px;
+  height:150px;
+  margin-bottom:20px;
+  position:relative;
+}
+.radial-closest-corner{
+  background: radial-gradient(closest-corner, red, yellow, black);
+  width:150px;
+  height:150px;
+  margin-bottom:20px;
+  position:relative;
+}
+
+.radial-farthest-corner{
+  background: radial-gradient(farthest-corner, red, yellow, black);
+  width:150px;
+  height:150px;
+  margin-bottom:20px;
+  position:relative;
+}
+.radial-size-container span{
+  color:white;
+  position:absolute;
+  bottom:0;
+  left:10px;
+  font-size:1em;
+  line-height:2em;
+}
+/*End of first radial-gradient container */
+.radial-closest-side1{
+  background-image: radial-gradient(closest-side at 60% 55%, red, yellow, black);
+  width:150px;
+  height:150px;
+  margin-bottom:20px;
+  position:relative;
+}
+.radial-farthest-side2{
+  background:radial-gradient(farthest-side at 60% 55%, red, yellow, black);
+  width:150px;
+  height:150px;
+  margin-bottom:20px;
+  position:relative;
+}
+.radial-closest-corner3{
+  background-image: radial-gradient(closest-corner at 60% 55%, red, yellow, black);
+  width:150px;
+  height:150px;
+  margin-bottom:20px;
+  position:relative;
+}
+
+.radial-farthest-corner4{
+  background: radial-gradient(farthest-corner at 60% 55%, red, yellow, black);
+  width:150px;
+  height:150px;
+  margin-bottom:20px;
+  position:relative;
+}
+.radial-size-container span{
+  color:white;
+  position:absolute;
+  bottom:0;
+  left:10px;
+  font-size:1em;
+  line-height:2em;
+}
+/*End of second radial-gradient container */
+.radial-div-syntax{
+  background: radial-gradient(ellipse farthest-corner at 30% 70%, red, blue, purple);
+  width:400px;
+  height:200px;
+  margin:50px auto;
+}
+.radial-color-stops{
+  background: radial-gradient(red 5%, blue 15%, purple 60%);
+  width: 400px;
+  height:200px;
+  margin: 50px auto;
+}
+.radial-repeat{
+  background: repeating-radial-gradient(red, blue 10%, purple 15%);
+  width:400px;
+  height:200px;
+  margin: 50px auto;
+}
+/* End of radial-gradient */
+
+/* conic-gradient */
+
+.conic-five{
+  background: conic-gradient(red, yellow, green, blue, purple);
+  width:200px; height:200px;
+  margin:50px auto;
+}
+.conic-three-deg{
+  background: conic-gradient(red 45deg, yellow 90deg, blue 210deg);
+  width:200px;
+  height:200px;
+  margin:50px auto;
+}
+.conic-pie{
+  background: conic-gradient(red, yellow, green, blue, purple);
+  border-radius:50%;
+  width:200px;
+  height:200px;
+  margin:50px auto;
+}
+.conic-pie-2{
+  background: conic-gradient(red 0deg, red 90deg, yellow 90deg, yellow 180deg, green 180deg, green 270deg, blue 270deg, blue);
+  border-radius:50%;
+  width:200px;
+  height:200px;
+  margin:50px auto;
+}
+.conic-90deg{
+  background: conic-gradient(from 90deg, red, yellow, green);
+  border-radius:50%;
+  width:200px;
+  height:200px;
+  margin:50px auto;
+}
+.conic-position{
+  background: conic-gradient(at 60% 45%, red, yellow, green);
+  border-radius:50%;
+  width:200px;
+  height:200px;
+  margin:50px auto;
+}
+.conic-repeat-1{
+  background: repeating-conic-gradient(red 10%, purple 20%);
+  border-radius:50%;
+  width:200px;
+  height:200px;
+  margin:50px auto;
+}
+.conic-repeat-2{
+  background: repeating-conic-gradient(red 0deg 10deg, yellow 10deg 20deg, blue 20deg 30deg);
+  border-radius:50%;
+  width:200px;
+  height:200px;
+  margin:50px auto;
+}
+
+/* box-shadow */
+
+.box-shadow-blur1{
+  border:2px solid black;
+  width:400px;
+  box-shadow:5px 10px 8px #888888;
+  margin:50px auto;
+}
+.box-shadow-blur2{
+  border:2px solid black;
+  width:400px;
+  box-shadow: 5px 10px 18px #888888;
+  margin:50px auto;
+}
+.box-shadow-blur3{
+  border:2px solid black;
+  width:400px;
+  box-shadow: 5px 10px 18px red;
+  margin:50px auto;
+}
+.box-shadow-multiple{
+  border:2px solid black;
+  width:400px;
+  box-shadow: 5px 5px 8px blue, 10px 10px 8px red, 15px 15px 8px green;
+  margin:50px auto;
+}
+.box-shadow-noinset{
+  border:2px solid black;
+  width:400px;
+  box-shadow: 5px 10px 20px;
+  margin:50px auto;
+}
+.box-shadow-inset{
+  border:2px solid black;
+  width:400px;
+  box-shadow:5px 10px 20px inset;
+  margin:50px auto;
+}
+
+/* CSS CALC() FUNCTION */
+
+  .calc-div1{
+    background-color:yellow;
+    border:1px solid black;
+    width: calc(60% - 100px);
+    padding:5px;
+    position:absolute;
+    left:400px;
+}
+.separator-div{
+  margin-bottom: 5rem;
+}
+
+.calc-div2{
+  background-color:yellow;
+  border:1px solid black;
+  width: calc(100% - 100px);
+  padding:5px;
+}
+
+.calc-div3{
+  background-color:yellow;
+  border:1px solid black;
+  padding:0.5rem calc(1.25rem + 2px) 0.5rem 1rem;
+}
+
+.max-div1{
+  background-color:yellow;
+  border: 1px solid black;
+  width: max(50%, 300px);
+  padding:1.8em;
+}
+.max-div2{
+  margin-top:50px;
+  border: 1px solid black;
+  width:300px;
+  padding: 1.8em;
+}
+.min-div1{
+  background-color:yellow;
+  border: 1px solid black;
+  width: min(50%, 300px);
+  padding:1.8em;
+}
+
+@media (max-width: 1024px){
+  article div{
+    font-size: 0.8rem;
+  }
+ .calc-div1{
+  width: calc(60% - 50px);
+  left:180px;
+}
+}
+
+@media (max-width:768px){
+  .main-section h2{
+    font-size: 1.1rem;
+  }
+  h3, h4, h5, h6{
+    font-size:1rem;
+  }
+  article div:not(.color-wheel-container, .color-wheel){
+    max-width:300px; 
+    padding:0; 
+  }
+  .calc-div1{
+    width: calc(60% - 100px);
+    left:150px;
+  }
+}
+
+@media (max-width: 600px){
+  body{
+    margin: 8rem 1rem 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  #navbar{
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    width: 100vw;
+    height: 15ch;
+    justify-content:space-between;
+    align-items: center;
+  }
+  #navbar header h1{
+    padding:3rem ;
+    font-size: 1.3rem;
+  }
+  #navbar ul{
+    width: 70%;
+    min-width: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 1em;
+  }
+  #navbar a{
+    font-size: 0.6rem;
+  padding:0.21em;
+  }
+  #navbar a:hover{
+    font-size: 0.65rem;
+  }
+  .main-section header h2{
+    font-size: 1.1rem;
+  }
+  #Position_Property header{
+    margin-top: 15rem;
+  }
+}
+@media(prefers-reduced-motion: no-preference){
+  html{
+    scroll-behavior: smooth;
+  }
+}

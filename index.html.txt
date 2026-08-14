@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+
+  <body>
+    <nav id="navbar">
+      <header><h1>CSS Tips</h1></header>
+        <ul>
+          <li>
+            <a href="#Position_Property" class="nav-link">Position Property</a>
+          </li>
+          <li>
+            <a href="#CSS_Colors" class="nav-link">CSS Colors</a>
+          </li>
+          <li>
+            <a href="#Gradients_&_Shadows" class="nav-link">Gradients & Shadows</a>
+          </li>
+          <li>
+            <a href="#Accessibility" class="nav-link">Accessibility</a>
+          </li>
+          <li>
+            <a href="#CSS_Functions" class="nav-link">CSS Functions</a>
+          </li>
+        </ul>
+    </nav>
+    <main id="main-doc">
+
+      <section class="main-section" id="Position_Property">
+        <header><h2>Position Property</h2></header>
+        <article>
+          <p>The <span class="highlight">position</span>property specifies the positioning 
+          method for an element.</p>
+          <p>The are five different position values:</p>
+          <ul>
+            <li><span class="highlight">Static</span></li>
+            <li><span class="highlight">Relative</span></li>
+            <li><span class="highlight">Fixed</span></li>
+            <li><span class="highlight">Absolute</span></li>
+            <li><span class="highlight">Sticky</span></li>
+          </ul>
+        
+          <h3>position:static;</h3>
+          <p>
+            <span class="highlight">Static</span> is the 
+            <b>default </b>position of all HTML elements.
+          </p>
+          <p>
+            Static positioned elements are not affected by top, left, bottom, right properties.
+          </p>
+          <p>
+            An element with <span class="highlight">position:static;</span> is not positioned in any special way. It's always positioned according to the <b>normal flow of the page</b>.
+          </p>
+          <div class="static-div">This div is static.</div>
+
+          <div class="code">
+            <code><b>HTML</b><br>
+              &ltdiv class="static-div"&gtThis div is static.<br>
+              &lt/div&gt<br>
+              <b>CSS</b><br>
+              .static-div{<br>
+              border:2px solid blue;<br>
+              position:static;<br>
+              }<br>
+            </code>
+          </div>
+
+          <h3>position:relative;</h3>
+          <p>
+            An element with position <span class="highlight">
+            relative</span> is positioned relative to its normal position.
+          </p>
+          <p>
+            Using the <b>top, right, bottom, left</b> properties of the relatively-positioned element will cause it to be adjusted away from its original position.
+          </p>
+          <p>No other content will adjust to fit into the gap left by the element.</p>
+
+          <div class="relative-div">
+            This div is relativeley positioned.
+          </div>
+
+          <div class="code">
+            <code>
+              <b>HTML</b><br>
+              &ltdiv class="relative-div"&gtThis div is relative.<br>
+              &lt/div&gt<br>
+              <b>CSS</b><br>
+              .relative-div{<br>
+              border:2px solid blue;<br>
+              position:relative;<br>
+              left:50px;<br>
+              }<br>
+            </code>
+          </div>
+
+          <h3>position:fixed;</h3>
+          <p>
+            An element with <span class="highlight">position:fixed</span> is positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled.
+          </p>
+          <p>
+            The <b>top, right, bottom, left</b> properties are used to position the element.
+          </p>
+          <p>
+            A fixed element <b>does not leave a gap</b> in the page where it would have been normally located.
+          </p>
+          <p>
+            The nav bar on the left of the screen is fixed to the left.
+          </p>
+          
+          <div class="code">
+            <code>
+              <b>CSS</b><br>
+              #navbar{<br>
+              position:fixed;<br>
+              left:0;<br>
+              top:0;<br>
+              height:100%;<br>
+              width:300px;<br>
+              background-color:black;<br>
+              color:white;<br>
+              padding:10px;<br>
+              z-index:999;<br>
+              }<br>
+            </code>
+          </div>
+
+          <h3>position:absolute;</h3>
+          <p>
+            The <span class="highlight">position:absolute</span> is positioned <b>relative to the nearest positioned ancestor</b>. (Instead of <b>positioned relative to the viewport</b>, life <span>fixed</span>.)
+          </p>
+          <p>
+            If an absolute positioned element has no positioned ancestors, it uses the document (HTML) body, and <b>moves along with page scrolling</b>.
+          </p>
+          <p>
+            <b>Note</b>: Absolute positioned elements are removed fron the normal flow, and can overlap other elements.
+          </p>
+  <!--FIX THIS (inline CSS)-->
+          <div class="relative-div">
+            This div is relative.
+          
+            <div class="absolute-div">
+            This div is absolute.
+            </div>
+          </div>
+                
+          <div class="code">
+            <code>
+              <b>HTML</b><br>
+              &ltdiv class="relative-div" style="width:300px; height:150px;"&gt<br>
+              This div is relative.<br><br>
+              &ltdiv class="absolute-div"&gtThis div is absolute.&lt/div&gt<br><br>
+              &lt/div&gt<br>
+              <b>CSS</b><br>
+              .absolute-div{<br>
+              border:2px solid blue;<br>
+              position:absolute;<br>
+              bottom:10px;<br>
+              right:5px;<br><br>
+              .relative-div{<br>
+              border:2px solid blue;<br>
+              position:relative;<br>
+              left:50px;<br>
+              }<br>
+            </code>
+          </div>
+
+          <h3>position:sticky;</h3>
+          <p>
+            An element with <span class="highlight">position:sticky</span> is positioned based on user's <b>scroll</b> position.
+          </p>
+          <p>
+            A sticky element <b>toggles between</b> <span class="highlight">relative</span> and <span class="highlight">fixed</span>, depending on the scroll position.
+          </p>
+          <p>
+            It is positioned relative, until a given offset position is met in the viewport - then it sticks in place (like position:fixed).
+          </p>
+          <p>
+            <b>Note</b>:At least one of the <b>top, right, bottom, left, must be specified</b>, for sticky position to work.
+          </p>
+
+          <div class="sticky-container">
+            <p>
+              <b>Scroll down to see the sticky element in action.</b>
+            </p>
+
+            <div class="sticky-div">This div has position:sticky;</div>
+            <p> 
+              Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus. 
+            </p>
+          </div>
+
+          <div class="code">
+            <code>
+              <b>HTML</b><br>
+              &ltdiv class="sticky-container"&gt<br>
+              <span style="color:gray;">Some text.</span><br><br>
+              &ltdiv class="sticky"&gt&lt/div&gt<br><br>
+              <span style="color:gray;">Lots of filler text to scroll.</span><br>
+              &lt/div&gt<br><br>
+              <b>CSS</b><br>
+              .sticky-container{<br>
+              border:3px solid gray;<br>
+              overflow:auto;<br>
+              height:200px;<br>
+              }<br><br>
+              .sticky-div{<br>
+              border:2px solid blue;<br>
+              background-color:rgb(203, 203, 235);<br>
+              position:sticky;<br>
+              top:0;<br>
+              }<br>
+            </code>
+          </div>
+        </article>
+
+        <article>
+          <h3>z-index Property</h3>
+          <p>
+            When elements are <b>positioned</b>, they can overlap other elements.<br> The <span class="highlight">z-index</span> property specifies the stack order of an element. (Which element should be placed in front, or behind, the other.).
+          </p>
+
+          <ul>
+            <li>
+              <span class="highlight">z-index</span> only works on <b>positioned</b> elements (position:absolute, position:relative, position:sticky; position:fixed), and <b>flex items</b> (elements that are direct children of <span class="highlight">display:flex;</span>).
+            </li>
+            <li>
+              If two <b>positioned</b> elements overlap without a specified <span class="highlight">z-index</span>, the element positioned <b>last</b> in the HTML code will be on <b>top</b>.
+            </li>
+            <li>
+              An element can have a <b>positive</b> or <b>negative</b> stack order.
+            </li>
+          </ul>
+
+          <div class="zindex-container">
+            <div class="red-div top-left"></div>
+            <div class="nozindex-div yellow-div tl0">No z-index</div>
+            <div class="zindex1 yellow-div tl1">z-index1</div>
+            <div class="zindex2 yellow-div tl2">z-index2</div>
+            <div class="zindex3 yellow-div tl3">z-index3</div>
+
+            <div class="red-div top-right zindex1"></div>
+            <div class="nozindex-div yellow-div tr0">No z-index</div>
+            <div class="zindex1 yellow-div tr1">z-index1</div>
+            <div class="zindex2 yellow-div tr2">z-index2</div>
+            <div class="zindex3 yellow-div tr3">z-index3</div>
+
+            <div class="red-div bottom-right zindex2 "></div>
+            <div class="yellow-div br0">No z-index</div>
+            <div class="zindex1 yellow-div br1">z-index1</div>
+            <div class="zindex2 yellow-div br2">z-index2</div>
+            <div class="zindex3 yellow-div br3">z-index3</div>
+
+            <div class="red-div bottom-left zindex3"></div>
+            <div class="nozindex-div yellow-div bl0">No z-index</div>
+            <div class="zindex1 yellow-div bl1">z-index1</div>
+            <div class="zindex2 yellow-div bl2">z-index2</div>
+            <div class="zindex3 yellow-div bl3">z-index3</div>
+          </div>
+
+          <div class="code">
+            <code>
+              <p>
+                <b>All yellow boxes</b><br>
+                .yellow-div{<br>
+                border:1px solid black;<br>
+                background-color:rgba(255,  255,0,0.8);<br>
+                width:100px;<br>
+                height:100px;<br>
+                position:absolute;<br>
+                }<br>
+              </p>
+              <p>
+                <b>Each yellow box from T/R to B/L</b><br>
+                .zindex1{<br>
+                z-index:1;<br>
+                }<br>
+                .zindex2{<br>
+                z-index:2;<br>
+                }<br>
+                .zindex3{<br>
+                z-index:3;<br>
+                }<br>
+              </p>
+              <p>
+                <b>All red boxes</b><br>
+                .red-div{<br>
+                border:1px solid black;<br>
+                background-color:red;<br>
+                width:100px;<br>
+                height:100px;<br>
+                position:absolute<br>
+                }<br>
+              </p>
+              <p>
+                <b>Each red box from T/R to B/L</b><br>
+                .zindex1{<br>
+                z-index:1;<br>
+                }<br>
+                .zindex2{<br>
+                z-index:2;<br>
+                }<br>
+                .zindex3{<br>
+                z-index:3;<br>
+                }<br>
+
+              </p>
+            </code>
+          </div>
+
+          <h3>z-index 1/-1/999</h3>
+          <p>
+            Use <span class="highlight">z-index</span> 999 when:
+          </p>
+          <ul>
+            <li>You need an element to appear above most elements.</li>
+            <li>You are certain it won't conflict with high priority layers.</li>
+            <li>You are not arbitrarily stacking elements with big numbers just to "make it work".</li>
+          </ul>
+
+         <p>Use <span class="highlight">z-index</span> 1/-1 when:</p>
+         <ul>
+           <li>You want an element to be just above/below its sibling, nothing too extreme.</li>
+           <li>To avoid using large z-index values and keep the stacking order clean.</li>
+           <li>The element must not go on top of evereything else, just its local context.</li>
+         </ul>
+        </article>
+      </section>
+
+           <!--CSS COLORS -->
+        
+
+      <section class="main-section" id="CSS_Colors">
+        <header><h2>CSS Colors</h2></header>
+        <article>
+          <h3>The Two Main Color Models</h3>
+          <p>The are two main color models:</p>
+          <ul>
+            <li>The additive <span class="highlight">RGB(R,G,B)</span>, used <b>in electronic devices</b>.</li>
+            <li>The substructive <span class="highlight">CMYK</span>(Cyan, Magenta, Yellow, Black). Used <b>in print</b>.</li>
+          </ul>
+
+          <h4>1-RGB(R,G,B) Characterisitics</h4>
+          <ul>
+            <li>Starts as <b>black</b> at <b>RGB(0,0,0)</b>, and changes as different levels of <span style="color:red;"><b>Red</b></span>, <span style="color:rgb(0.255,0);"><b>Green</b></span> and <span style="color:blue;"><b>Blue</b></span> are introduced.</li>
+
+          </ul>
+          <h4>2-Secondary Colors:</h4>
+          <p>Secondary colors are combinations of primary colors.</p>
+          <ul>
+            <li>Yellow is a combination of <span style="color:red;"><b>Pure Red</b></span> and <span style="color:rgb(0,255,0);"><b>Pure Green</b></span>.<br>
+            <span style="background-color:rgb(255,255,0)">Yellow:rgb(255,255,0)</span> </li>
+
+            <li>Cyan is a combination of <span style="color:rgb(0,255,0);"><b>Pure Green</b></span> and <span style="color:blue;"><b>Pure Blue</b></span>. <br>
+            <span style="background-color:rgb(0,255,255);">Cyan: rgb(0,255,255)</span></li>
+
+            <li>Magenta is a combination of <span style="color:red;"><b>Pure Red</b></span> and <span style="color:blue;"><b>Pure Blue</b></span>. <br>
+            <span style="background-color:rgb(255,0,255)">Magenta:rgb(255,0,255)</span> </li>
+
+          </ul>
+        
+          <h4>3-Tetriary Colors</h4>
+          <p>Tetriacy colors are a combination of primary color and a nearby secondary color.</p>
+
+          <ul>
+            <li>Orange is a combination of <span style="color:red;"><b>Max Red</b></span> and <span style="color:rgb(0,127,0);"><b>mid-value Green</b></span>. <br>
+            <span style="background-color:rgb(255,127,0)">orange:rgb(255,127,0)</span> </li>
+
+            <li>Spring Green is a combination of <span style="color:rgb(0,255,0);"><b>Max Green</b></span> and <span style="color:rgb(0,0,127);"><b>Mid-value Blue</b></span>.<br>
+            <span style="background-color:rgb(0,255,127)">Spring Green:rgb(0,255,127)</span></li>
+
+            <li>Violet/Electric Purple is <span style="color:rgb(127,0,0);"><b>Mid Red</b></span> and <span style="color:blue;"><b>Max Blue</b></span>. <br>
+            <span style="background-color:rgb(127,0,255)">Violet:rgb(127,0,255)</span></li>
+
+            <li>Chartreuse Green is <span style="color:rgb(127,0,0);"><b>Mid Red</b></span> and <span style="color:rgb(0,255,0);"><b>Max Green</b></span>. <br>
+            <span style="background-color:rgb(127,255,0);">Chartreuse Green:rgb(127,255,0)</span></li>
+
+            <li>
+              Azure is <span style="color:rgb(0,127,0);"><b>Mid Green</b></span> and <span style="color:blue;"><b>Max Blue</b></span>.<br>
+             <span style="background-color:rgb(0,127,255)">Azure:rgb(0,127,255)</span>
+            </li>
+
+           <li>Rose/Bright Pink is <span style="color:rgb(255,0,0)"><b>Max Red</b></span> and <span style="color:rgb(0,0,127)"><b>Mid Blue</b></span>. <br>
+           <span style="background-color:rgb(255,0,127)">Rose:rgb(127,0,255)</span></li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Color Theory</h3>
+          <p>
+            A <b>color wheel</b> is a circle where similar colors, or <b>hues</b> are near each other. and different ones are further apart.
+          </p>
+          <p>
+            <b>Example</b>: Pure red is between the hues orange and red.
+          </p>
+
+          <div class="color-wheel-container" id="colorwheel">
+            
+            <div class="color-wheel">
+              <div class="color-wheel-center">
+                <span style="position:absolute; top:-40px ; left:70px;">0</span>
+                <span style="position:absolute; top:50px; left:180px; transform:rotate(92deg);">90</span>
+                <span style="position:absolute; bottom: -50px; left:60px;">180</span>
+                <span style="position:absolute; top:48px; left:-50px; transform:rotate(-90deg);">270</span>
+              </div>
+            </div>
+          </div>
+
+          
+          <h4>Complementary Colors</h4>
+          <ul>
+            <li>Complementary colors are opposite from each other on the color wheel.</li>
+            <li>If complementary colors are combined, they produce gray.</li>
+            <li>When place side-by-side, these colors produce strong visual contrast and appear bright.</li>
+          </ul>
+
+          <p><b>Example of two complementary colors</b>:</p>
+          <div style="width:200px; height:100px; position:relative; left:20%"">
+            <div style="background-color:cyan;width:200px;height:50%;"></div>
+            <div style="background-color:red;width:200px;height:50%;"></div>
+          </div>
+
+          <p><b>Best practice</b>. How to use this combo of colors:</p>
+          <ul>
+            <li>It shouldn4t be overused in a website because the brihtness is too distracting.</li>
+            <li>Text is hard to read if used on a complementary color.</li>
+            <li>Best practice is to <b>use one color as dominant color</b>, and use its complementary color to <b>draw attention to specific content</b>. e.g. headings, buttons or links.</li>
+
+          </ul>
+
+          <h4>The HSL Color Models</h4>
+          <ul>
+            <li>CSS HSL function accepts 3 values: A number from 0 to 360, a percentage for saturation and a percentage for brightness.</li>
+            <li>On <a href="#colorwheel">color wheel</a>, red is at 0 degrees, green is at 120, and blue is at 240 degrees.</li>
+            <li>Saturation is the intensity of color from 0% (Gray) to 100% pure color.</li>
+            <li>Lighness is how bright the color appears. 0% is complete black. 50% is neutral.</li>
+          </ul>
+        </article>
+         
+         <article>
+           <h3>Opacity and RGBA Channel</h3>
+           <h4>Opacity</h4>
+           <p>Describes how <b>opaque/non-transparent</b> an element is.</p>
+           <ul>
+             <li>In CSS, the value 0 or 0% will make an element completely transparent.</li>
+             <li>At 1.0 or 100%, an element is completely opaque.</li>
+           </ul>
+
+           <p><b>Example</b>: CSS command: opacity:0.5;</p>
+
+           <h4>Opacity With Alpha Channel</h4>
+           <p>It works just like RGB() function, but with the opacity value.</p>
+           <p><b>Example</b>:</p>
+
+           <div class="rgba-example"><p><b>This div background color has the following rgba() function</b>:
+             <code>rgba(255,0,0,0.3);</code></p></div>
+         </article>
+        </section>
+<!--CSS GRADIENTS-->
+      <section class="main-section" id="Gradients_&_Shadows">
+        <header><h2>Gradients & Shadows</h2></header>
+        <article>
+          <h3>CSS Gradients</h3>
+          <P>CSS gradients lets you display smooth 
+            transition between two or more specified colors.
+          </p>
+          <p>CSS defines three types of gradients:</p>
+          <ul>
+            <li><b>linear Gradient (goes down/up/left/right/diagonally)</b></li>
+            <li><b>Radial Gradients (defined by their center)</b></li>
+            <li><b>Conic Gradients (rotated around a center point)</b></li>
+          </ul>
+
+          <h4>CSS Linear Gradient</h4>
+          <p>
+            <span class="highlight">linear-gradient</span> property creates a linear gradient where one color transitions into another.
+          </p>
+          <p><b>Note</b>:</p>
+          <ul>
+            <li>Linear gradient creates an <b>image element</b>.</li>
+            <li>
+              It is usually paired with <b>background-image</b> 
+              or just the <b>'shorthand' background</b>
+            </li>
+          </ul>
+
+          <p><b>Color Stops</b></p>
+          <p>
+            Color stos are colors you want to render smooth 
+            transition among. To create a linear gradient, at 
+            least two colors must be defined.
+          </p>
+
+          <ul>
+            <li><b>Allows to fine-tune where colors are placed along the gradient.</b></li>
+            <li><b>Length units like px or percentages can be used to determine where the transition begins.</b></li>
+            <li><b>A starting point and a direction (or an angle) can also be set.</b></li>
+          </ul>
+
+          <p><b>Syntax</b></p>
+
+          <div class="linear-gradient-1">
+            <code>background: linear-gradient(direction, color-stop1, color-stop2 ...);</code>
+          </div>
+
+          <div class="code"><p><b>CSS</P></b>
+            <code>
+              .linear-gradient-1{<br>
+              background:linear-gradient(90deg, rgb(255,0,255), rgb(127,0,255));<br>
+              color:white;<br>
+              padding:20px;<br>
+              text-align:center;<br>
+              }<br>
+            </code>
+          </div>
+
+          <p><b>Examples</b>:</p>
+          <p><b>Direction - Top to Bottom (This is default)</b></p>
+          <p>The following example shows a gradient that starts at the top. It starts red, trandistioning to yellow.</p>
+
+          <div class="linear-grad-container">
+            <div class="linear-gradient-default">
+              <p>Top to Bottom (Default)</p>
+            </div>
+          <div class="code"><code>
+            .linear-gradient-default{<br>
+            background:linear-gradient(red,yellow);<br>
+            width:400px;<br>
+            height:200px;<br>
+            padding:10px;<br>
+            text-align:center;<br>
+            margin:0;<br>
+            }<br>
+            </code></div>
+          </div>
+
+          <p><b>Direction - Left to Right</b></p>
+          <p>The following example shows a linear gradient that starts from the left, It starts red, transitioning to yellow.</p>
+
+          <div class="linear-grad-container">
+            <div class="linear-gradient-toright"><p>Left to right</p>
+
+          </div>
+          <div class="code"><code>
+            .linear-gradient-toright{<br>
+            background:linear-gradient(to right, red, yellow);<br>
+            width:400px;<br>
+            height:200px;<br>
+            padding:10px;<br>
+            text-align:center;<br>
+            margin:0;<br>
+            }<br>
+            </code>
+          </div>
+          </div>
+
+          <p><b>Direction - Diagonal</b></p>
+          <p>It's possible to create a diagonal gradient by specifying both the horizontal and vertical starting positions.</p>
+          <p>The following example shows a linear gradient that starts at top left, and goes to bottom right. (It starts red, transitioning to yellow).</p>
+
+          <div class="linear-grad-container">
+            <div class="linear-gradient-diagonal"><p>Top left to bottom right</p></div>
+
+            <div class="code">
+              <code>
+                .linear-gradient-diagonal{<br>
+                 background:linear-gradient(to bottom right, red, yellow);<br>
+                 width:400px;<br>
+                 height:200px;<br>
+                 padding:10px;<br>
+                 text-align:center;<br>
+                 margin:0;<br>
+                 }<br>
+              </code>
+            </div>
+
+          </div>
+
+          <p><b>Using Angles</b></p>
+          <p>
+            To have more control over the direction of the gradient, an angle can be defined, instead of the directions (to bottom, to top, to right, to bottom right, etc.).
+          </p>
+
+          <p>
+            A value of 90deg is equivalent to "to right". A value of 180deg is equivalent to "to bottom".
+          </p>
+
+          <h5>Syntax</h5>
+
+          <div class="linear-gradient-1">
+            <code>background:linear-gradient (angle, color-stop1, color-stop2);</code>
+          </div>
+
+          <P><b>Examples</b>:</p>
+
+          <p>With angle set to 180deg:</p>
+
+          <div class="linear-gradient-180">
+            <code>
+              .linear-gradient-180{<br>
+              <b>background:linear-gradient(180deg, red,  yellow);</b><br>
+               width:400px;<br>
+               height:200px;<br>
+               padding:10px;<br>
+               text-align:center;<br>
+               margin:auto;<br>
+               }<br>
+            </code>
+          </div>
+
+          <p>With angle 90deg and % length units to fine-tune where colors are placed along the gradient:</p>
+
+          <div class="linear-gradient-90">
+            <code>
+              .linear-gradient-90a{<br>
+              <b>background: linear-gradient(90deg, rgb(127,0,255)70%, rgb(255,0,127));</b><br>
+              color:white;<br>
+              width:400px;<br>
+              padding:10px;<br>
+              text-align:center;<br>
+              margin:auto;<br>
+              }<br>
+            </code>
+          </div>
+
+          <p>Horizontal light graduation effect with 180deg and % length units:</p>
+
+          <div class="linear-gradient-180b">
+            <code>background: linear-gradient(180deg, rgb(127,0,255) 0%, rgb(255,0,127) 50%, rgb(127,0,255) 100%);</code>
+          </div>
+
+          <p><b>Using Transparency</b></p>
+          <p>Transparency can be used to create a fading effect. This can be done with the rgba() alpha channel.</p>
+
+          <p>The following example is a linear gradient that starts from the left. It starts transparent, tranitioning to full red.</p>
+
+          <div class="linear-gradient-transparent">
+            <code>
+              .linear-gradient-transparent{
+               background: linear-gradient(90deg, rgba(255,0,0,0), rgba(255,0,0,1));
+              }
+            </code>
+          </div>
+
+          <p><b>Repeating Linear-gradient</b></p>
+
+          <p>The CSS <span class="highlight">repeating-lineat-gradient()</span> is used to repeat linear gradient:</p>
+
+          <div class="linear-gradient-repeat">
+            <code>
+              .linear-gradient-repeat{
+              background: repeating-linear-gradient(
+              rgb(52, 209, 162), rgb(37, 99, 133) 10%, rgb(105, 57, 160)20% );
+              }
+            </code>
+          </div>
+
+          <h4>CSS Radial Gradient</h4>
+
+          <p>
+            The CSS <span class="highlight">radial-gradient()</span> function creates a radial gradient.
+          </p>
+          <p>A radial-gradient is defined by its center.</p>
+          <p>To create a radial-gradient, at least two color stops must be defined.</p>
+
+          <h5>Syntax</h5>
+          <div class="radial-gradient-1">
+            <code>background: radial-gradient ([shape] [size] at [position], start-color, ..., last-color);</code>
+          </div>
+
+          <p>Default is: Shape is <b>ellipse</b>. Size is </b> farthest-corner</b>. Position is <b> center</b>.</p>
+
+          <div class="radial-gradient-default"></div>
+          <h6>1-Shape</h6>
+            <ul style="list-style-type:disc;">
+              <li>Determines whether the gradient is circular or elliptical.</li>
+              <li><b>Options</b>:
+                <ul style="list-style-type:circle;">
+                  <li><b>circle</b>: Forces the gradient into a perfect circile.</li>
+                  <li><b>ellipse</b> (<b>default</b>): 
+                    Stretches based on the element's aspect ratio.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <p><b>Example</b>:</p>
+          <div class="radial-gradient-1">
+            <code>background: radial-gradient(circle, red, blue, purple);</code>
+          </div>
+          <div class="radial-gradient-examplecircle"></div>
+          <h6>2-Size</h6>
+          <p>Defines the size of the gradient. It tells the gradient <b>how far it should extend</b> before reaching the <b>last color stop</b>.</p>
+          <p>It takes four values:</p>
+          <ul style="list-style-type:disc;">
+            <li><b>closest-side</b>:Gradient stops at the nearest side of the box (top, right, bottom, left).</li>
+            <li><b>farthest-side</b>: Gradient stops at the farthest side of the box.</li>
+            <li><b>closest-corner</b>: Gradient stops at the closest corner of the box.</li>
+            <li><b>farthest-corner</b>(<b>Default</b>):</li> Gradient stops at the fardest corner of the box.
+          </ul>
+          <p><b>Example</b>:</p>
+          
+          <div class="radial-size-container" >
+            <div>
+              <div class="radial-closest-side"><span><b>closest-side</b></span></div>
+              <div class="radial-farthest-side"><span><b>farthest-side</b></span></div>
+            </div>
+            <div>
+              <div class="radial-closest-corner"><span><b>closest-corner</b></span></div>
+              <div class="radial-farthest-corner"><span><b>farthest-corner</b></span></div>
+            </div>         
+          </div>
+
+            <!--End of flexbox container -->
+           
+           <div class="radial-gradient-1 ">
+             <P><b>closest-side</b></p><code>background: radial-gradient(closest-side, red, yellow, black);</code>
+           </div>
+           
+           <div class="radial-gradient-1 ">
+             <P><b>farthest-side</b></p><code>background:radial-gradient(farthest-side, red, yellow, black);</code>
+           </div>
+           <div class="radial-gradient-1 ">
+             <P><b>closest-corner</b></p><code>background: radial-gradient(closest-corner, red, yellow, black);</code>
+           </div>
+           <div class="radial-gradient-1 ">
+             <P><b>farthest-corner</b></p><code>background: radial-gradient(farthest-corner, red, yellow, black);</code>
+           </div>
+
+           <!--End of code divs -->
+
+            <h6>3-Position</h6>
+            <ul>
+              <li>Defines where the gradient starts - its <b>central</b> point.</li>
+              <li><b>Syntax</b>: at x-axis y-axis </li>
+              <li><b>center</b> (default) <b>, top, right, bottom, left</b> -- or <b>%/px</b></li>
+            </ul>
+
+            <p><b>Example</b>:</p>
+            <p>These are the same four sizes from the example above, with defined positions.</p> 
+
+            <div class="radial-size-container" >
+              <div>
+                <div class="radial-closest-side1"><span><b>closest-side</b></span></div>
+                <div class="radial-farthest-side2"><span><b>farthest-side</b></span></div>
+              </div>
+           
+              <div>
+                <div class="radial-closest-corner3"><span><b>closest-corner</b></span></div>
+                <div class="radial-farthest-corner4"><span><b>farthest-corner</b></span></div>
+              </div>         
+            </div>
+            <!--End of flexbox container -->
+
+            <div class="radial-gradient-1 ">
+              <P><b>closest-side</b></p>
+              <code>
+                background: radial-gradient(closest-side<b> at 60% 55%</b>, red, yellow, black);
+              </code>
+            </div>
+           
+           <div class="radial-gradient-1 ">
+             <P><b>farthest-side</b></p>
+             <code>
+              background:radial-gradient(farthest-side<b> at 60% 55%</b>, red, yellow, black);
+             </code>
+           </div>
+           <div class="radial-gradient-1 ">
+             <P><b>closest-corner</b></p>
+             <code>
+              background: radial-gradient(closest-corner<b> at 60% 55%</b>, red, yellow, black);
+             </code>
+           </div>
+           <div class="radial-gradient-1 ">
+             <P><b>farthest-corner</b></p>
+             <code>
+              background: radial-gradient(farthest-corner<b> at 60% 55%</b>, red, yellow, black);
+             </code>
+            </div>
+
+           <!--End of code divs -->
+
+           <h5>Full Syntax</h5>
+
+           <p>The full syntax of a <span class="highlight">radial-gradient</span> looks like this:</p>
+
+           <div class="radial-gradient-1">
+            <code>
+              background: radial-gradient(<span style="color:rgb(0,0,255);"><b>ellipse</b></span> <span style="color:rgb(0,255,0);"><b>farthest-corner</b></span> <b>at 30% 70%</b>, red, blue, purple);
+            </code>
+           </div>
+
+           <ul>
+             <li><b>ellipse</b>: shape.</li>
+             <li><b>farthest-corner</b>: stretches to thef arthest corner.</li>
+             <li><b> at 30% 70%</b>: starts the gradient a bit right and lower than the ceter.</li>
+           </ul>
+
+           <div class="radial-div-syntax"></div>
+
+           <h6>Radial Gradient With Differently Spaced Color Stops</h6>
+
+           <div class="radial-gradient-1">
+             <code>
+               background: radial-gradient(red <b>5%</b>, blue <b>15%</b>, purple </b>60%</b>);
+             </code>
+           </div>
+
+           <div class="radial-color-stops"></div>
+
+           <h6>Repeating a radial-gradient</h6>
+           <p>
+             The <span class="highlight">repeating-radial-gradient()</span> is used to repeat radial gradients.
+           </p>
+
+           <div class="radial-gradient-1">
+             <code>background: repeating-radial-gradient (red, blue 10%, purple 15%);</code>
+           </div>
+           <div class="radial-repeat"></div>
+
+           <!-- End of radial-gradient -->
+
+           <!-- Conic-gradient -->
+           <h4>CSS Conic Gradients</h4>
+
+           <p>The <span class="highlight">conic-gradient()</span> function creates a conic gradient.</p>
+           <p>A conic gradient is a gradient with color transitions rotated around a center point.</p>
+           <p>To create a conic gradeint, at least two colors must be defined.</p>
+
+           <h5>Syntax</h5>
+
+           <div class="radial-gradient-1">
+             <code>background: color-gradient([from angle] [at position], color [degree], color [degree], ...);</code>
+           </div>
+
+           <p>By default, <b>angle</b> is 0deg and <b>position</b> is center.</p>
+           <p>If no <b>degree</b> is specified, the colors will be spread equally around the center point.</p>
+
+           <h6>Conic Gradient: Five Colors</h6>
+           <div class="conic-five"></div>
+
+           <h6>Conic Gradient: Three Colors and Degrees</h6>
+           <p>A conic gradient with three colors and a degree for each color.</p>
+
+           <div class="radial-gradient-1">
+             <code>background: conic-gradient(red 45deg, yellow 90deg, blue 210deg);</code>
+           </div>
+
+           <div class="conic-three-deg"></div>
+
+           <h6>Pie Charts with Conic Gradient</h6>
+
+           <p>By simply<span class="highlight">border-radius:50%;</span> makes conic gradient look like a pie:</p>
+
+           <div class="radial-gradient-1">
+             <code>background: conic-gradient(red, yellow, green, blue, purple);<br>
+             border-radius: 50%; <br></code>
+           </div>
+
+           <div class="conic-pie"></div>
+
+           <p>Here is another pie chart with <b>defined degrees</b> for all colors.</p>
+
+           <div class="radial-gradient-1">
+             <code>
+               background: conic-gradient(red 0deg, red 90deg, yellow 90deg, yellow 180deg, green 180deg, green 270deg, blue 270deg, blue);<br>
+               border-radius:50%;
+             </code>
+           </div>
+
+           <div class="conic-pie-2"></div>
+
+           <h6>Conic Gradient With Specified From Angle</h6>
+           <p>The <code>[from angle]</code> specifies an angle that the entire conic gradient is rotated by.</p>
+
+           <p>The following is a conic gradient with a from gradient 90deg.</p>
+
+           <div class="radial-gradient-1">
+             <code>background: conic-gradient(from 90deg, red, yellow, green);</code>
+           </div>
+
+           <div class="conic-90deg"></div>
+
+           <h6>Conic Gradient With Specified Center Position</h6>
+
+           <p>The <code>[at position]</code> specifies the center of the conic gradient.</p>
+           <p>This is a conic gradient with a center position at 60% 45%</p>
+
+           <div class="radial-gradient-1">
+             <code>background: conic-gradient(at 60% 45%, red, yellow, green);</code>
+           </div>
+
+           <div class="conic-position"></div>
+
+           <h6>Repeating Conic Gradient</h6>
+
+           <p>The CSS <span class="highlight">repeating-conic-gradient()</span> function is used to repeat conic gradient.</p>
+
+           <div class="linear-gradient-1">
+             <code>
+               background: repeating-conic-gradient(red 10%, purple 20%);
+             </code>
+           </div>
+
+           <div class="conic-repeat-1"></div>
+
+           <p>This is a repeating conic gradient with <b>defined color-starts and color-stops</b>.</p>
+
+           <div class="linear-gradient-1">
+             <code>background: repeating-conic-gradient(red 0deg 10deg, yellow 10deg 20deg, blue 20deg 30deg);</code>
+           </div>
+
+           <div class="conic-repeat-2"></div>
+
+           <h6>Color Wheel With Conic Gradient</h6>
+
+           <div class="color-wheel" style="margin:auto;"></div>
+
+           <div class="code">
+
+  
+  
+             <code> 
+               <b>background:<br>conic-gradient( 
+    hsl(0, 100%, 50%) 0deg 10deg,<br>
+    hsl(10, 100%, 50%) 10deg 20deg,</b><br>
+    &lt!-- CONTINUE PATTERN UNTIL--&gt<br>
+    <b>hsl(350, 100%, 50%) 350deg 360deg);</b>
+             </code>
+           </div>
+          </article>
+
+          <article>
+            <h3>Box Shadow</h3>
+            <p>The <span class="highlight">box-shadow</span> property allowd you to apply one or more shadow around an element.</p>
+
+            
+            <div class="linear-gradient-1" style="margin-bottom:30px;">
+              <code>
+                box-shadow: OffsetX OffsetY blur spread color;
+              </code>
+            </div>
+
+            <ul>
+              <li>OffsetX and OffsetY accepts values in xp.</li>
+              <li>Positive OffsetX values move the shadow right while negative move it left.</li>
+              <li>Positive OffsetY values move the shadow down while negative move it up.</li>
+            </ul>
+
+            <h4>The Blur Effect</h4>
+
+            <h6>box-shadow: 5px 10px 8px #888888;</h6>
+
+            <div class="box-shadow-blur1">
+              <p>The optional third value adds a blur.</p>
+            </div>
+            <h6>box-shadow: 5px 10px 18px #888888;</h6>
+            <div class="box-shadow-blur2">
+              <p>More blur.</p>
+            </div>
+
+            <h6>box-shadow:5px 10px 18px red;</h6>
+            <div class="box-shadow-blur3">
+              <p>Red blur.</p>
+            </div>
+               
+            
+            <h4>Multiple Shadows</h4>
+
+            <h6>box-shadow: 5px 5px 8px blue, 10px 10px 8px red, 15px 15px 8px green;</h6>
+
+            <div class="box-shadow-multiple">
+              <P>Multiple Shadows With Blur.</p>
+            </div>
+
+            <h4>box-shadow: 5px 10px inset;</h4>
+
+            <h6>box-shadow: 5px 10px 20px;</h6>
+            <div class="box-shadow-noinset">
+              <p>No inset.</p>
+            </div>
+
+            <h6>box-shadow:5px 10px 20px inset;</h6>
+
+            <div class="box-shadow-inset">
+              <p>With inset.</p>
+            </div>
+          </article>
+        </section>
+
+
+      <section class="main-section" id="Accessibility">
+        <header><h2>Accessibility</h2></header>
+        <article>
+          <h3>What is Accessibility?</h3>
+          <p><b>Accessibility</b> (often abbreviated to <b>A11y</b> -- as in "a", then 11 characters, then "y") in web develpment means enabling as many people as possilbe to use websites, even when those people's abilities are limited in some way.</p>
+
+          <p>Accessibility means developing content to be <b>as accessible as possible</b>, no matter the individual's physical or cognitive abilities and how they access the web.</p>
+
+          <h3>ARIA</h3>
+          <p>Accessible Rich Internet Application <b>(ARIA)</b> is a set of roles and attributes that define ways to make web content and application (especially those developed with JavaScript) more accessible to people with disabilities.</p>
+
+          <ul>
+            <li><b>ARIA Attributes</b></li>
+            <p>Enable modifying an element's states and properties as defined in the accessibility tree.</p>
+            <p>Find more about ARIA <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes" target="_blank">attributes</a>.</p>
+
+            <li><b>ARIA Roles</b></li>
+            <p>ARIA roles provide semantic meaning to content, allowing screen readers and other tools to present and support interaction with an object in a way that is consistent with user expectations of that type of object. ARIA roles can be used to describe elements that don't natively exist in HTML or exist but don't yet have full browser support.</p>
+
+            <p>By default, many semantic elements in HTML have a role. For example, <span class="highlight">&ltinput type="radio"&gt</span> has the "radio" role. Non-semantic elements in HTML do not have a role. Elements like <span class="highlight">&ltdiv&gt</span> and <span class="highlight">&ltspan&gt</span> without added semantics return <span class="highlight">null</span>. The <b>role</b> attribute can provide semantics.</p>
+          </ul>
+
+          <p>Find more about ARIA <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles" target="_blank">roles</a></p>
+
+          <h3>The Region Landmark</h3>
+          <p>The <span class="highlight">region</span> role is an <b>ARIA landmark</b> role.</p>
+          <P><span class="highlight">role="region"</span>  is used to identify a section of the page as an important landmark or region.</p>
+
+          <h4>Purpose And Use</h4>
+
+          <ul>
+            <li><b>Improves accessibility</b>: It tells users "this is a meaningful part of the page", so users can directly jumb to it.</li>
+            <li><b>Adds structure</b>: Each region acts like a self-contained topic or section.</li>
+          </ul>
+          <p>Use it when:</p>
+          <ul>
+            <li>When the section contains important content that users might want to navigate to directly.</li>
+            <li>When the section has a <b>visible heading</b> (<span class="highlight">&lth1&gt</span> to <span class="highlight">&lth6&gt</span>), which helps <b>screen readers</b> label the region meaningfully.</li>
+            <li>The <span class="highlight">region</span> landmark role's content should make sense if seperated from the main content of the document.</li>
+          </ul>
+
+          <p>Every element with a <span class="highlight">role="region"</span> should include a <b>label</b> that describes the purpose of the content in the region.</p>
+          <ul>
+            <li><span class="highlight">aria-labelledby</span> should be used, referencing a <b>visible header</b>.</li>
+            <li><span class="highlight">aria-label</span> should be used if <b>no visible appropriate header</b> is present.</li>
+          </ul>
+
+          <h3>aria-labelledby VS aria-label</h3>
+
+          <p>This is used to label a region.</p>
+          <h4>Using aria-labelledby</h4>
+          <ul>
+            <li><span class="highlight">aria-labelledby</span> is often used to point to the heading of the section so screen readers mention the heading to refer to the region.</li>
+            <li>Use <span class="highlight">aria-labelledby</span> when there is <b>a visibile text/hading</b> that can serve as title to the section, usually a heading <span class="highlight">&lth&gt</span> tag.</li>
+
+            <ol style="margin-top:10px;">
+              <li>Add an <code>id</code> to the element you want to use as label to the region (e.g, a heading tag).</li>
+              <li>Add <span class="highlight">aria-labelledby</span> to the element with <span class="highlight">role="region</span> with the <b>same value as the id</b> of the element used to title the region.</li>
+            </ol>
+          </ul>
+
+          <h5>Example:</h5>
+
+          <div class="code">
+            <code>
+              &ltdiv <span style="color:red;">role</span>="<span style="color:green;">region</span>" <span style="color:red;">aria-labelledby</span>="<span style="color:green;">region-heading</span>"&gt<br>
+                &lth2 <span style="color:red;">id</span>="<span style="color:green;">region-heading</span>"&gt<br>
+                <b>Screen readers will read this heading.</b><br>
+                &lt/h2&gt<br>
+                <!-- region content --><br>
+              &lt/div&gt<br>
+            </code>
+          </div>
+
+          <h4>Using aria-label</h4>
+          <ul>
+            <li>Use <span class="highlight">aria-label</span> when <b>no appropiate visible appropriate heading</b>.</li>
+            <li>This defines a label that is <b>only visible to assestive technologies</b>.</li>
+          </ul>
+
+          <h5>Example:</h5>
+          
+          <div class="code">
+            <code>
+              &ltdiv <span style="color:red">aria-label</span>="<span style="color:green">contact information</span>"&gt<br>
+                &ltp&gtPhone: 123-456-7890&lt/p&gt<br>
+                &ltp&gtEmail: info@example.com&lt/p&gt<br>
+
+              &lt/div&gt<br>
+            </code>
+          </div>
+
+          <h3>Best Practice</h3>
+
+          <h4>Prefer HTML</h4>
+
+          <ul>
+            <li>Using the <span class="highlight">&ltsection&gt</span> element will automatically communicate a section has a role of <span class="highlight">region</span> if it is given an accessible name.</li>
+            <li>Prefer using <span class="highlight">&ltsection&gt</span> whenever possible.</li>
+
+          </ul>
+
+          <p style="color:red;"><b>Developers should always prefer using the correct HTML semantic element, instead of using ARIA.</b></p>
+
+          <h4>Labeling Landmarks</h4>
+          <p>If there is more than one <span class="highlight">region</span> landmark role, provie a unique label for each one.</p>
+          <p style="color:red;"><b>The label will allow assistive technology users to be able to quickly understand the purpose of each landmark.</b></p>
+
+          <h5>Examples:</h5>
+
+          <h6>Using a visible heading</h6>
+          <p><b>This is the best practice</b> and most recommended method, as it provides information to both screen readers and sighted users.</p>
+
+          <div class="code">
+            <code>
+              <span style="color:red;">&ltsection&gt</span><br>
+                <span style="color:green">&lth2&gt</span>Contact Us<span style="color:green">&lt/h2&gt</span><br>
+                &ltp&gtInformation about contacting us...&lt/p&gt<br>
+              <span style="color:red;">&lt/section&gt</span>
+            </code>
+          </div>
+
+          <p><b>When the heading <span class="highlight">&lth&gt</span> element is inside the <span class="highlight">section</span> element, WAI-ARIA roles are not needed. HTML semantic element is enough.</b></p>
+
+          <h6>Use aria-labelledby</h6>
+          <p>To link the <span class="highlight">section</span> to a <b>visible element that serves as its label</b>, such as a heading.</p>
+
+          <div class="code">
+            <code>
+              &lth2 id="contact-heading"&gtContact Us&lt/h2&gt<br>
+              &ltsection aria-labelledby="contact-heading"&gt<br>
+              &ltp&gtInformation about contacting us...&lt/p&gt<br>
+              &lt/section&gt<br>
+            </code>
+
+          </div>
+
+          <p><b>When the heading <span class="highlight">&lth&gt</span> element is before the <span class="highlight">section</span> element, <span style="color:red;">aria-labelledby</span> should be used.</b></p>
+
+
+          
+          <h6>Use aria-label</h6>
+
+          <p>If no visible label is required, you can provide an accessible name directly using <span class="highlight">aria-label</span>.</p>
+
+          <div class="code">
+            <code>
+              &ltsection aria-label="Contact Information"&gt<br>
+                &ltp&gtInformation about contacting us...&lt/p&gt<br>
+              &lt/section&gt<br>
+            </code>
+
+          </div>
+
+          <p><b>The label will only be visible to assistive technologies, and read by screen readers.</b></p>
+
+          <h3>Hide Elements Visually For Screen Readers</h3>
+
+          <p>It is possible to add text only screen readers can read.</p>
+          
+          <h4>Here is how:</h4>
+          <ol>
+            <li>Nest the text you want to hide within a <span class="highlight">&ltspan&gt</span> element and give it a class.</li>
+            <li>A common CSS code can be used to make the text visually hidden, only visible for screen readers to read.</li>
+
+          </ol>
+
+          <h5>The Code:</h5>
+
+          <div class="code">
+            <code>
+              <b>border: 0;<br>
+              clip: rect(1px, 1px, 1px, 1px);<br>
+              clip-path: inset(50%);<br>
+              height: 1px;<br>
+              width: 1px;<br>
+              overflow: hidden;<br>
+              white-space: nowrap;<br>
+              position: absolute;<br>
+              padding: 0;<br>
+              margin: -1px;<br></b>
+            </code>
+          </div>
+
+          <h6>Explanation:</h6>
+          <ol>
+            <li><span class="highlight">clip:</span> and <span class="highlight">clip-path:</span> are both used <b>to maximize browser compatibility</b>, especially for older browsers that don't support <span class="highlight">clip-path:</span>.</b>
+              <ul>
+                <li><b>clip:</b> legacy property, supported by very old browsers (pre-2017).</li>
+                <li><b>clip-path:</b> current spec, works in all modern browsers and isn't deprecated.</li>
+              </ul>
+
+            </li>
+
+            <li><span class="highlight">clip: rect(1px, 1px, 1px, 1px);</span> or <span class="highlight">clip: rect(0, 0, 0, 0);</span> -- clips the element down to nothing.<br>
+              -<b>Only works with </b><span class="highlight">position:absolute;</span>. Hence, adding it.
+            </li>
+            <li><span class="highlight">clip-path(50%);</span> -- Newer syntax for modern browsers. <b>Does the same as (2)</b>.</li>
+            <li><span class="highlight">overflow: hidden; width: 1px; height: 1px; margin: -1px;</span> -- <b>help push the element off screen</b> and prevent it from affecting layout.</li>
+            <li><span>white-space: nowrap;</span> -- avoids line breaks, just in case.
+              <br>(The <span>white-space</span> property specifies how the white space inside an element is handled).
+
+            </li>
+          </ol>
+
+          <h5>Alternative Code</h5>
+
+          <p>Using an example:</p>
+
+          <ol>
+            <li>Nest the text you want to hide in a <span class="highlight">span</span> element and give it a class.</li>
+            <li>Give the class the CSS code to make the text hidden.</li>
+          </ol>
+
+          <div class="code">
+            <code>
+              <b>
+                HTML<br>
+                <br>
+                &ltp&gtSome text and &ltspan class="sr-only"&gtword&lt/span&gt within span to make it hidden.&ltp&gt
+              </b>
+            </code>
+          </div>
+
+          <div class="code">
+            <code>
+              <b>
+                CSS<br>
+                <br>
+                position: absolute;<br>
+                width: 1px;<br>
+                height: 1px;<br>
+                overflow: hidden;<br>
+                clip: rect(0, 0, 0, 0);<br>
+                clip-path: inset(50%);<br>
+                white-space: nowrap;<br>
+              </b>
+            </code>
+          </div>
+
+          <h5>Final Note</h5>
+          <p>This combo of code is often used for <b>screen readers only</b> content. Such as:</p>
+          <ul>
+            <li>Form labels that are hidden for visual users, but announced by screen readers.</li>
+            <li>Extra descriptions or accessibility helpers for blind users.</li>
+          </ul>
+        </article>
+      </section>
+
+         <!--END OF ACCESSIBILITY-->
+
+      <!-- CSS calc() and min()/max() FUNCTIONS-->
+
+      <section class="main-section" id="CSS_Functions">
+        <header><h2>CSS Functions</h2></header>
+        <article>
+          
+          <p>CSS functions can be used to calculate values, manipulate strings or colors, create complex shapes and gradients, and more.</p>
+
+          <h3>CSS calc() Function</h3>
+          <p>Allows to perform calculation to determine the value of a property.</p>
+
+          <h4>Example 1:</h4>
+          <p>To calculate the width of a <span class="highlight">div</span> element.</p>
+
+          <div class="calc-div1">
+            Creates a div that stretches across the window, with 50px gap on both sides.
+          </div>
+          <div class="separator-div"></div>
+
+          <div class="code">
+            <code>
+              .calc-div1{<br>
+                background-color:yellow;<br>
+                border:1px solid black;<br>
+                width: calc(100% - 100px);<br>
+                padding:5px;<br>
+                position:absolute;<br>
+                left:50px;<br>
+              }<br>
+            </code>
+          </div>
+
+          <h5>Explanation:</h5>
+          <ol>
+            <li><b>position:absolute;</b> Takes the element out of the document flow and positions it relative to the html page (in this case).</li>
+           <li><b>left:50px;</b> Moves the div 50px from the left.</li>
+            <li><b>width: calc(100% - 100px);</b> Sets the div width to 100% minus 100px.
+
+              <p>why 100px? Becaus:
+                <ul>
+                  <li>The div is already pushed 50px away from the left.</li>
+                  <li>We want 50px gap on the right, too.</li>
+                </ul>
+              </p>
+            
+            </li>
+          </ol>
+          <p><b>100% - 100px = div width - the combined left and right gaps.</b></p>
+
+          <h4>Example 2:</h4>
+
+          <div class="calc-div2">This will make the div 50px narrower only on the right side.</div>
+          <div class="code">
+            <code>
+              .calc-div1{<br>
+                background-color:yellow;<br>
+                border:1px solid black;<br>
+                width: calc(100% - 100px);<br>
+                padding:5px;<br>
+              }<br>
+            </code>
+          </div>
+
+          <h4>Example 3:</h4>
+
+          <div class="calc-div3">
+            <code>
+              padding: 0.5rem calc(1.25rem + 2px) 0.5rem 1rem;
+            </code>
+          </div>
+
+          <h5>Explanation:</h5>
+          <ul>
+            <li><b>Top</b>: 0.5rem</li>
+            <li><b>Right</b>: calc(1.25rem + 2px)</li>
+            <li><b>Bottom</b></li>: 0.5rem
+            <li><b>Left</b></li>: 1rem
+          </ul>
+
+          <ul>
+            <li><b>right padding</b> is the only side using calc().<br>
+            calc(1.25rem + 2px) means: font-size-based value 1.25rem + fixed 2px.
+            </li>
+            <li>If the root font size rem is the usual 16px: 1.25 x 16px = 20px. So <b>padding-ight</b>: calc(1.25rem + 2px) = <b>about 22px</b>.</li>
+          </ul>
+
+          <h5>Why use it</h5>
+          <p>Combining a scalable unit (rem) with a fixed pixel tweak is common when you want padding that is mostly scales with text size, but still leaves a consistent extra amount of pixels -- for example to make room for an icon, border, or caret.</p>
+
+          
+          <h4>CSS min() and max() Functions</h4>
+          
+          <h5>CSS max() Function</h5>
+          <p>The CSS <span class="highlight">max()</span> function uses the <b>largest value</b>, from a comma-seperated list of values, as the property value.</p>
+
+          <h6>Example:</h6>
+          <p>In this example, the width will be at least 300px, but will be wider (50%) if the viewport width is more than 600px.</p>
+          <div class="max-div1">max() sets the width to whichever value is largest: 50% or 300px.</div>
+          <div class="max-div2">This div has a fixed width of 300px.</div>
+          <p>Resize the browser window to see the effect.</p>
+
+          <h5>CSS min() Function</h5>
+          <p>The CSS <span class="highlight">min()</span> function uses the smallest value, from a comma-seperated list of values, as the property value.</p>
+
+          <h6>Example:</h6>
+          <p>In this example, the width will be at most 300px, but it will be smaller (50%) if the viewport width is smaller than 600px.</p>
+
+          <div class="min-div1">min() sets the width to whichever value is smallest: 50% or 300px.</div>
+          <div class="max-div2">This div has a fixed width of 300px.</div>
+
+           <p><b>Tip</b>: You can think of <span class="highlight">min()</span> function to set a maximum value for an element.</p>
+        </article>
+      </section> 
+    </main>
+  </body>
+</html>
